@@ -1,5 +1,5 @@
 var trex, treximage, ground, groundimage, iground, cloudsgroup, cloudimage, score, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6, obstaclesgroup, restart, gameover, restartimage, gameoverimage;
-
+var jumpsound;
 var PLAY = 0;
 var END = 1;
 
@@ -26,6 +26,8 @@ function preload(){
   restartimage = loadImage("restart.png");
   gameoverimage = loadImage("gameOver.png");
   
+ jumpsound =  loadSound("jump.MP3");
+ 
 }
 
 
@@ -72,6 +74,7 @@ function draw() {
     
     if(keyDown("space") && trex.y > 366){
     trex.velocityY = -10;
+    jumpsound.play();
   }
     
      trex.velocityY = trex.velocityY + 0.5;
